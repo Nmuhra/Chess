@@ -38,4 +38,24 @@ def main():
        running = False
     clock.tick(MAX_FPS) 
     p.display.flip()
-  
+
+def drawGameState(screen, gs):
+  drawBoard(screen) #this will draw squares on the board
+  drawPieces(screen, gs.board) #will draw pieces on te squares
+
+"""
+Draw squares on the board.
+"""
+def drawBoard(screen):
+  colors = [p.Color("Gray"), p.Color("White")]
+  for r in range(DIMENSION):
+    for c in range(DIMENSION):
+      color = colors[((r+c)%2)]
+      p.draw.rect(screen, color, p.Rect(c*SQ_SIZE, r*SQ_SIZE, SQ_SIZE, SQ_SIZE))
+"""
+Draw the pieces.
+""" 
+def drawPieces(screen, board):
+  pass
+if __name__ == "__main__":
+  main()
